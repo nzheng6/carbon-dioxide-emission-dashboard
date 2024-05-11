@@ -28,12 +28,17 @@ $ python3.11 -m pip install uv
 $ uv venv
 ```
 
-4. Install required dependencies
+4. Start virtual environment
+```bash
+$ source .venv/bin/activate
+```
+
+5. Install required dependencies
 ```bash
 $ uv pip install -r requirements.txt
 ```
 
-4. Run app.py using the Shiny VSCode extension or try:
+6. Run app.py using the Shiny VSCode extension or try:
 ```bash
 $ shiny run app.py
 ```
