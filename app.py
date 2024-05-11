@@ -56,7 +56,7 @@ app_ui = ui.page_fillable(
                     ---
                     # Context
                     ---
-                    With global warming, the emission of greenhouse gases is growing concern. By visualizing CO2 emissions, we can evaluate the effectiveness of climate policies and better allocate our efforts in reducing carbon emissions.  
+                    Global warming and climate change are the result of rising concentrations of greenhouse gases. Carbon dioxide (CO2) accounts for a large percentage of greenhouse gas emissions. CO2 emissions primarily come from burning fossil fuels. In recent years, many countries have adopted climate policies to reduce greenhouse gas emissions. By visualizing CO2 emissions, we can evaluate the effectiveness of climate policies and better allocate our efforts toward reducing carbon emissions. 
 
                     ---
                     # Instructions
@@ -157,7 +157,7 @@ def server(input: Inputs, output: Outputs, session: Session):
             hover_name='country_name',
             hover_data=['value'],
             color='value',
-            color_continuous_scale='Reds',
+            color_continuous_scale='rdpu',
         )
         fig.layout.coloraxis.colorbar.title = 'CO2 Emissions in Kiloton (kt)'
         return fig  
