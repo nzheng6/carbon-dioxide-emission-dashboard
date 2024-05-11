@@ -2,13 +2,13 @@
 
 GitHub username at initialization time: nzheng6
 
-# CO2 Carbon Emission Dashboard
+# Carbon Dioxide Emission Dashboard
 
 ## Purpose
 The purpose of this dashboard is to help visualize the amount of carbon dioxide (CO2) emitted by each country from 1960 to 2019. 
 
 ## Context
-With global warming, the emission of greenhouse gases is growing concern. By visualizing CO2 emissions, we can evaluate the effectiveness of climate policies and better allocate our efforts in reducing carbon emissions. 
+Global warming and climate change are the result of rising concentrations of greenhouse gases. Carbon dioxide (CO2) accounts for a large percentage of greenhouse gas emissions. CO2 emissions primarily come from burning fossil fuels. In recent years, many countries have adopted climate policies to reduce greenhouse gas emissions. By visualizing CO2 emissions, we can evaluate the effectiveness of climate policies and better allocate our efforts toward reducing carbon emissions.
 
 This dashboard uses data from the [CO2 Emissions](https://www.kaggle.com/datasets/ulrikthygepedersen/co2-emissions-by-country) Kaggle dataset.
 
