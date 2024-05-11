@@ -9,7 +9,7 @@ from shinywidgets import output_widget, render_widget
 emission_df = pd.read_csv("data/co2_emissions_kt_by_country.csv")
 
 app_ui = ui.page_fillable(
-    ui.page_navbar(title="CO2 Emission by Country"),
+    ui.page_navbar(title="Carbon Dioxide Emission by Country"),
     ui.page_sidebar(
         ui.sidebar(
             ui.input_select("graph", "Graph", selected="Line", multiple=False, choices=("Line", "Bar", "Map")),
@@ -48,7 +48,7 @@ app_ui = ui.page_fillable(
                     ---
 
                     ### Data
-                    Data was obtained from the Kaggle dataset [CO2 Emissions](https://www.kaggle.com/datasets/ulrikthygepedersen/co2-emissions-by-country).
+                    Data was obtained from the [CO2 Emissions](https://www.kaggle.com/datasets/ulrikthygepedersen/co2-emissions-by-country) Kaggle dataset.
 
                     ***License***  
                     [Attribution 4.0 International (CC BY 4.0 DEED)](https://creativecommons.org/licenses/by/4.0/)
@@ -56,10 +56,60 @@ app_ui = ui.page_fillable(
                     ---
                     # Context
                     ---
+                    With global warming, the emission of greenhouse gases is growing concern. By visualizing CO2 emissions, we can evaluate the effectiveness of climate policies and better allocate our efforts in reducing carbon emissions.  
 
                     ---
                     # Instructions
                     ---
+                    On the left sidebar, select your desired graph under the "Graph" section. You may select from the following choices:  
+                    - Line
+                    - Bar
+                    - Map
+
+                    ### Line Graph
+                    When you select "Line" under "Graph", you will see three inputs below:
+                    - Country / Region
+                    - Start Year
+                    - End Year
+
+                    These inputs will modify the line graph according to your preferences.
+
+                    1. Type or select your desired country or region in the "Country / Region" input. You may select multiple countries / regions. 
+                    2. Type or select the year that you want to start viewing data from in the "Start Year" input.
+                    3. Type or select the year that you want to view the data up to in the "End Year" input.
+
+                    ***Example Usage***
+                    1. Type "Belgium" and "Denmark" in the "Country / Region" input. 
+                    2. Type "1997" in the "Start Year" input.
+                    3. Type "2010" in the "End Year" input. 
+                    4. The final line graph shows the CO2 carbon emission in kilotons (kt) for Belgium and Denmark from 1997 to 2010. 
+
+                    ### Bar Graph
+                    When you select "Bar" under "Graph", you will see two inputs below:
+                    - Country / Region 
+                    - Year
+
+                    These inputs will modify the bar graph according to your preferences. 
+
+                    1. Type or select your desired country or region in the "Country / Region" input. You may select multiple countries / regions. 
+                    2. Type or select the year that you want to view data from in the "Year" input.
+
+                    ***Example Usage***
+                    1. Type "Belgium" and "Denmark" in the "Country / Region" input. 
+                    2. Type "2010" in the "Year" input. 
+                    3. The final bar graph shows the CO2 carbon emission in kilotons (kt) for Belgium and Denmark in 2010. 
+
+                    ### Map
+                    When you select "Line" under "Graph", you will see one input below:
+                    - Year
+
+                    This input will determine what year the map is based on.
+
+                    1. Type or select the year that you want to view data from in the "End Year" input.
+
+                    ***Example Usage***
+                    1. Type "2010" in the "End Year" input. 
+                    2. The final map shows the CO2 carbon emission in kilotons (kt) around the world in 2010. The intensity of the color is based on the carbon emission of the country / region. You may hover over the map to see details. 
                     """
                 ) 
             ),
@@ -93,7 +143,7 @@ def server(input: Inputs, output: Outputs, session: Session):
             ax.set_ylabel('CO2 Emissions in Kiloton (kt)')
             ax.grid()
         elif input.graph() == 'Bar':
-            sns.barplot(x='value', y='country_name', hue='country_name', orient='h', ci=None, data=df)
+            sns.barplot(x='value', y='country_name', hue='country_name', orient='h', errorbar=None, data=df)
             ax.set_xlabel('CO2 Emissions in Kiloton (kt)')
             ax.set_ylabel('Country / Region')
         return fig
